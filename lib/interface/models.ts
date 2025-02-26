@@ -46,4 +46,11 @@ export interface IReview extends Document {
     rating: number;
     comments: string;
     timestamp: Date;
-  }
+}
+
+export type USER = {
+    id:string,
+    role:string,
+    iat:number,
+    exp:number
+}

@@ -4,7 +4,11 @@ import { Listing } from "../../models/listings";
 import { Unit } from "../../models/unit";
 
 export const getSearch = async (req: Request, res: Response): Promise<void> => {
-
+    const {user} = req.body;
+    if(!user){
+        res.json({message:"Uauthorized access"}).status(403);
+        return;
+    }
     try {
         res.json({ message: "Working", status: 200 });
         return;
@@ -13,6 +17,8 @@ export const getSearch = async (req: Request, res: Response): Promise<void> => {
         return;
     }
 };
+
+// <------------------------------------------------------------------------------------------------------>
 
 export const getRoomOrTable = async (req: Request, res: Response): Promise<void> => {
     const { unitId } = req.body;
@@ -31,6 +37,8 @@ export const getRoomOrTable = async (req: Request, res: Response): Promise<void>
         res.json({ message: "Internal server error!! ", status: 500 })
     }
 }
+
+// <------------------------------------------------------------------------------------------------------>
 
 export const bookPlace = async (req: Request, res: Response): Promise<void> => {
     const { listingId, customerId, bookingDates, status, paymentDetails } = req.body;
@@ -61,6 +69,8 @@ export const bookPlace = async (req: Request, res: Response): Promise<void> => {
         return;
     }
 }
+
+// <------------------------------------------------------------------------------------------------------>
 
 export const getHistory = async (req: Request, res: Response): Promise<void> => {
     const { customerId } = await req.body;

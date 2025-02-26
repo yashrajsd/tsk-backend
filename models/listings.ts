@@ -2,7 +2,6 @@ import mongoose, { Schema } from "mongoose";
 import { IListing } from "../lib/interface/models";
 
 const ListingSchema = new Schema<IListing>({
-    _id: { type: String, required: true },
     vendorId: { type: String, ref: 'User', required: true },
     type: { type: String, enum: ['Hotel', 'Restaurant'], required: true },
     name: { type: String, required: true },

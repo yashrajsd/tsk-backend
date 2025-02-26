@@ -2,7 +2,6 @@ import mongoose, { Schema } from "mongoose";
 import { IBooking } from "../lib/interface/models";
 
 const BookingSchema = new Schema<IBooking>({
-    _id: { type: String, required: true },
     customerId: { type: String, ref: 'User', required: true },
     listingId: { type: String, ref: 'Listing', required: true },
     unitId: { type: String, ref: 'Unit', required: true },

@@ -22,7 +22,6 @@ export interface IListing extends Document {
 }
 
 export interface IUnit extends Document {
-    _id: string;
     listingId: string;
     type: string;
     capacity: number;

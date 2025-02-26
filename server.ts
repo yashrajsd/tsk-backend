@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { Connect } from './db/db';
@@ -19,6 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/hotels", HotelRouter);
 app.use("/api/auth", AuthRouter);
 app.use("/api",vendorRouter);
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("Hello, world!"); 
+});
+
 
 app.listen(PORT, () => {
     console.log("Server listening on port:", PORT);

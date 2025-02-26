@@ -21,7 +21,7 @@ app.use("/api/auth", AuthRouter);
 app.use("/api",vendorRouter);
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("Hello, world!"); 
+    res.send("Server is working!!"); 
 });
 
 
